@@ -1,0 +1,13 @@
+┌────┬──────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name             │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼──────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 2  │ apisunwin        │ default     │ 1.0.0   │ fork    │ 1086     │ 6h     │ 0    │ online    │ 100%     │ 115.2mb  │ root     │ disabled │
+│ 3  │ b52bomtan        │ default     │ 1.0.0   │ fork    │ 1088     │ 6h     │ 0    │ online    │ 0%       │ 90.0mb   │ root     │ disabled │
+│ 4  │ betvip-api       │ default     │ 1.0.0   │ fork    │ 1098     │ 6h     │ 0    │ online    │ 0%       │ 36.9mb   │ root     │ disabled │
+│ 1  │ crawl            │ default     │ N/A     │ fork    │ 1080     │ 6h     │ 0    │ online    │ 0%       │ 319.3mb  │ root     │ disabled │
+│ 6  │ redx-server      │ default     │ 1.0.0   │ fork    │ 1114     │ 6h     │ 0    │ online    │ 0%       │ 79.5mb   │ root     │ disabled │
+│ 7  │ taixiu-server    │ default     │ 1.0.0   │ fork    │ 1117     │ 6h     │ 0    │ online    │ 0%       │ 74.0mb   │ root     │ disabled │
+│ 5  │ taixiu789        │ default     │ 1.0.0   │ fork    │ 1105     │ 6h     │ 0    │ online    │ 0%       │ 75.0mb   │ root     │ disabled │
+│ 0  │ traffic          │ default     │ 1.0.0   │ fork    │ 1079     │ 6h     │ 0    │ online    │ 0%       │ 78.0mb   │ root     │ disabled │
+└────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+host metrics | cpu: 30.9% | ram usage: 20.6% | lo: ⇓ 0.071mb/s ⇑ 0.071mb/s | eth0: ⇓ 4.211mb/s ⇑ 0.103mb/s drop 30/min | disk: ⇓ 16.169mb/s ⇑ 0.982mb/s |
