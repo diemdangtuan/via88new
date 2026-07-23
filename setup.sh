@@ -87,6 +87,7 @@ log "Starting PM2 (taixiu-server)..."
 pm2 kill 2>/dev/null || true
 cd /var/www/taixiu-server && pm2 start server.js --name taixiu-server
 pm2 save
+pm2 startup systemd -u root 2>/dev/null || true
 
 log "Crontab..."
 (crontab -l 2>/dev/null; echo "* * * * * php /var/www/via888/artisan schedule:run >> /dev/null 2>&1") | crontab -
