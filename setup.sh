@@ -66,12 +66,10 @@ gunzip < bongda88.sql.gz | mysql -u root -p"${MYSQL_ROOT_PASS}" ${DB_NAME}
 log "Extracting source..."
 tar xzf src/taixiu-server.tgz -C /var/www/
 tar xzf src/via888.tgz        -C /var/www/
-tar xzf src/apisunwin.tgz     -C /root/    # chứa b52bomtan
 
 # ===== 9. npm install =====
 log "npm install..."
 cd /var/www/taixiu-server  && npm install
-cd /root/apisunwin/b52bomtan-main && npm install
 
 # ===== 10. Laravel =====
 log "Laravel setup..."
@@ -84,14 +82,16 @@ php artisan optimize 2>/dev/null || true
 log "Nginx config..."
 cp /root/backup789/nginx/conf.d/* /etc/nginx/conf.d/
 cp /root/backup789/nginx/nginx.conf /etc/nginx/nginx.conf
+# Remove proxy to port 3002 (b52bomtan not used)
+sed -i '/location \/68ClubA\//,/^    }/d' /etc/nginx/conf.d/taixiu-game.inc
+sed -i '/location \/apiv1\//,/^    }/d' /etc/nginx/conf.d/taixiu-game.inc
 nginx -t && systemctl restart nginx
 systemctl restart php7.4-fpm
 
-# ===== 12. PM2 (chỉ game + admin API) =====
+# ===== 12. PM2 (chỉ game) =====
 log "Starting PM2..."
 pm2 kill 2>/dev/null || true
 cd /var/www/taixiu-server  && pm2 start server.js --name taixiu-server
-cd /root                   && pm2 start apisunwin/b52bomtan-main/index.js --name b52bomtan
 pm2 save
 
 # ===== 13. Crontab =====
@@ -108,6 +108,5 @@ log "=========================================="
 echo ""
 log "Website:  http://${IP}/"
 log "Game:     http://${IP}/client"
-log "Admin:    http://${IP}/68ClubA/"
-log "PM2:      pm2 list (2 processes: taixiu-server + b52bomtan)"
+log "PM2:      pm2 list (1 process: taixiu-server)"
 echo ""
